@@ -1,18 +1,7 @@
-html {
-    font-size: 10px;
-}
-
-body {
-    font-size: 2rem;
-    position: relative;
-}
-
-.mac {
-    font-size: 1.5rem;
-}
-
-.ios {
-    font-size: 2em;
+html, * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .App {
@@ -22,4 +11,22 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     box-sizing: border-box;
+}
+
+.c-button {
+    padding: .6rem .8rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #0c0101;
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #0c0101;
+    transition: .2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #fff;
+        border-color: #0c0101;
+        color: #0c0101;
+    }
 }

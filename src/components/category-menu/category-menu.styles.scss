@@ -1,0 +1,9 @@
+.c-category-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    grid-template-rows: 30rem;
+    grid-template-areas: "category1 category2 category2"
+                         "category1 category3 category4";
+    overflow: hidden;
+}
