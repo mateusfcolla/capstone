@@ -1,0 +1,25 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 2rem;
+    position: relative;
+}
+
+.mac {
+    font-size: 1.5rem;
+}
+
+.ios {
+    font-size: 2em;
+}
+
+.App {
+    background: #161718;
+    color: white;
+    padding: 0 12rem;
+    min-height: 100vh;
+    min-width: 100vw;
+    box-sizing: border-box;
+}
