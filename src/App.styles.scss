@@ -2,6 +2,8 @@ html, * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: .2s;
+    text-decoration: none;
 }
 
 .App {
@@ -19,15 +21,45 @@ html, * {
     border-radius: 5px;
     font-size: 1rem;
     background-color: #0c0101;
-    color: #fff;
+    color: white;
     font-weight: 500;
     border: 1px solid #0c0101;
     transition: .2s;
     cursor: pointer;
 
     &:hover {
-        background-color: #fff;
-        border-color: #0c0101;
+        background-color: #464646;
+        border-color: #464646;
+    }
+
+    &.outline {
+        background-color: transparent;
         color: #0c0101;
+
+        &:hover {
+            background-color: #0c0101;
+            color: white;
+        }
+    }
+
+    &.primary {
+        background-color: #1a94f1;
+        border-color: #1a94f1;
+        color: white;
+
+        &:hover {
+            background-color: #56b4fc;
+            border-color: #56b4fc;
+        }
+
+        &.outline {
+            background-color: transparent;
+            color: #1a94f1;
+
+            &:hover {
+                background-color: #1a94f1;
+                color: white;
+            }
+        }
     }
 }

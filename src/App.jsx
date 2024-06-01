@@ -1,10 +1,14 @@
+import {  Routes, Route } from 'react-router-dom';
+import Home from './routes/home/home.component';
+import Login from './routes/auth/login.component';
 import "./App.styles.scss";
-import CategoryMenu from "./components/category-menu/category-menu.component";
+
 
 const App = () => (
-    <div className="App">
-        <CategoryMenu />
-    </div>
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+    </Routes>
 )
 
 export default App;
