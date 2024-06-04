@@ -36,6 +36,7 @@ const Header = () => {
                 </div>
 
                 <Link className="c-button primary" to="/login">Login</Link>
+                <Link className="c-button" to="/register">Register</Link>
 
             </div>
         </header>
