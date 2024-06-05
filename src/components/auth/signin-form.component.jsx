@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { signInUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 import FormInput from '../form-input/form-input.component';
-import { UserContext } from '../../contexts/user.context';
-import { useContext } from 'react';
 
 const defaultFormFields = {
     email: '',
@@ -13,23 +11,18 @@ const SignInForm = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
-    const { setCurrentUser } = useContext(UserContext);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-
         setFormFields({...formFields, [name]: value})
     }
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
         try {
             await signInUserWithEmailAndPassword(email, password);
-            setCurrentUser({email, password})
             setFormFields(defaultFormFields);
-            alert("User signed in successfully")
         } catch(e) {
             switch(e.code) {
                 case 'auth/user-not-found':

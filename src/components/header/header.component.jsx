@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 import { ReactComponent as LogoLight } from '../../assets/img/logo-light.svg';
+import { signOutUser } from '../../utils/firebase/firebase.utils';
 import './header.styles.scss';
 
 const Header = () => {
@@ -23,6 +24,14 @@ const Header = () => {
         }
     }
 
+    const handleLogout = async () => {
+        try {
+            await signOutUser();
+        } catch(e) {
+            alert("Error signing out user!")
+        }
+    }
+
     return (
         <header className="c-header">
             <div className="logo-wrapper">
@@ -41,9 +50,9 @@ const Header = () => {
                     }
                 </div>
 
-                { currentUser && <Link className="c-button primary outline" to="/logout">Logout</Link>}
-
-                { !currentUser && <Link className="c-button primary" to="/login">Login</Link>}
+                {
+                    currentUser ? (<button className="c-button primary outline" onClick={handleLogout}>Logout</button>) : (<Link className="c-button primary" to="/login">Login</Link>)
+                }
 
             </div>
         </header>
