@@ -3,14 +3,20 @@ import {
     signInWithGooglePopup,
 } from '../../utils/firebase/firebase.utils'
 import SignInForm from "../../components/auth/signin-form.component";
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
+import { UserContext } from '../../contexts/user.context';
+import { useContext } from 'react';
 
 const Login = () => {
+
+    const { setCurrentUser } = useContext(UserContext);
 
     const logGoogleUser = async () => {
         const { user } = await signInWithGooglePopup();
         const userDocRef = await createUserDocumentFromAuth(user);
-        console.log(userDocRef);
+        setCurrentUser(userDocRef);
+
+        redirect("/")
     }
 
     return (
@@ -22,7 +28,7 @@ const Login = () => {
                 <button className="c-button" style={{width: '100%'}} onClick={logGoogleUser}>Login with Google</button>
             <div className="c-advice" >
                 Dont have an account?
-                <Link to="/register"> Register here</Link>
+                <Link to="/register"> Create an account</Link>
             </div>
             </div>
         </>

@@ -47,7 +47,7 @@ const SignUpForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <FormInput
-                label='Display name'
+                label='Name'
                 type="text"
                 required
                 onChange={handleChange}

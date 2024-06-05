@@ -1,9 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/user.context';
+import { ReactComponent as LogoLight } from '../../assets/img/logo-light.svg';
 import './header.styles.scss';
 
 const Header = () => {
 
     const location = useLocation();
+    const { currentUser } = useContext(UserContext);
 
     const menus = [
         { name: 'Home', path: '/' },
@@ -22,7 +26,9 @@ const Header = () => {
     return (
         <header className="c-header">
             <div className="logo-wrapper">
-                <Link to="/" className="logo">Crown Clothing</Link>
+                <Link to="/">
+                    <LogoLight className="logo"/>
+                </Link>
             </div>
             <div className="menu-wrapper">
                 <div className="menu">
@@ -35,8 +41,9 @@ const Header = () => {
                     }
                 </div>
 
-                <Link className="c-button primary" to="/login">Login</Link>
-                <Link className="c-button" to="/register">Register</Link>
+                { currentUser && <Link className="c-button primary outline" to="/logout">Logout</Link>}
+
+                { !currentUser && <Link className="c-button primary" to="/login">Login</Link>}
 
             </div>
         </header>
